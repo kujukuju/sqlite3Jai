@@ -1190,7 +1190,8 @@ fts5_api :: struct {
 
 #scope_file
 
-
 #if OS == .LINUX {
 	sqlite :: #foreign_library "bin/libsqlite3";
+} else #if OS == .WINDOWS {
+    sqlite :: #foreign_library,no_dll "bin/sqlite3";
 }
